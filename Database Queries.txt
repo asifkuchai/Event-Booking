@@ -1,0 +1,32 @@
+1-Top 5 events by bookings in the last 30 days
+
+$topEvents = DB::select("
+    SELECT events.*, COUNT(bookings.id) AS bookings_count
+    FROM events
+    LEFT JOIN bookings ON bookings.event_id = events.id
+    WHERE bookings.created_at >= DATE_SUB(NOW(), INTERVAL 30 DAY)
+    GROUP BY events.id
+    ORDER BY bookings_count DESC
+    LIMIT 5
+");
+
+2-Users who booked >3 events last month
+$activeUsers = DB::select("
+    SELECT users.*, COUNT(bookings.id) AS bookings_count
+    FROM users
+    JOIN bookings ON bookings.user_id = users.id
+    WHERE bookings.created_at BETWEEN DATE_FORMAT(DATE_SUB(CURDATE(), INTERVAL 1 MONTH), '%Y-%m-01')
+                                  AND LAST_DAY(DATE_SUB(CURDATE(), INTERVAL 1 MONTH))
+    GROUP BY users.id
+    HAVING bookings_count > 3
+");
+
+3-Percentage occupancy for each event
+$events = DB::select("
+    SELECT e.id, e.title, e.capacity, 
+           IFNULL(SUM(b.tickets), 0) AS booked,
+           ROUND(IFNULL(SUM(b.tickets)/e.capacity*100,0),2) AS occupancy
+    FROM events e
+    LEFT JOIN bookings b ON b.event_id = e.id
+    GROUP BY e.id
+");
