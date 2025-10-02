@@ -32,25 +32,14 @@ The system allows users to register/login, view events, book tickets, and see st
 ## Screenshots
 
 ### 1. Login Page
-![Login Page](screenshots/login.png)
-
 ### 2. Register Page
-![Register Page](screenshots/Register.png)
-
 ### 3. Dashboard Page
-![Dashboard](screenshots/Dashboard.png)
-
 ### 4. Events  Page
-![Events Index](screenshots/Events.png)
-
 ### 5. Bookings Index Page
-![Bookings Index](screenshots/Bookings.png)
-
 ### 5. Email 
-![Email](screenshots/email.jpeg)
-
 ### 6. Booking Test
-![Email](screenshots/BookingTest.png)
+All the png images are in scrrenshots to experience how the blade files look.
+
 
 
 ## Project Setup Instructions
