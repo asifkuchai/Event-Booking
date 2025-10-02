@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Event Booking System (Laravel + MySQL)
 
 # Project Overview
@@ -296,3 +297,7 @@ If the index is used, you’ll see it listed in the key column.
 
 Thankyou very much For the opportunity.
 
+=======
+# Event-Booking
+Event Booking System built with Laravel 12 and MySQL, allowing users to browse and book events online. Features include social login via Socialite, caching for faster event listings, unit testing for core functionality, and a clean Blade-based interface for seamless user experience.
+>>>>>>> fd6157c10ff8b1c1d50386d64001e0ce05933af7
